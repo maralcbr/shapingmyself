@@ -1,0 +1,34 @@
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-07 11:12:50 +1300
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/maralc/.rvm/gems/ruby-2.1.0@rails4.0/gems/railties-4.0.2/lib/rails/templates/rails/welcome/index.html.erb (1.7ms)
+Completed 200 OK in 29ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20120526094149)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (9.2ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20120526094149"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTrackings (20120823015709)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (4.5ms)[0m  [1mCREATE TABLE "trackings" ("id" serial primary key, "i_date" timestamp, "i_weight" decimal, "m_waist" decimal, "m_hips" decimal, "m_chest_exp" decimal, "m_chest_insp" decimal, "m_left_arm" decimal, "m_right_arm" decimal, "m_left_thigh" decimal, "m_right_thigh" decimal, "m_neck" decimal, "c_triceps" decimal, "c_pectoral" decimal, "c_midaxilla" decimal, "c_subscapula" decimal, "c_abdomen" decimal, "c_suprailiac" decimal, "c_quadriceps" decimal, "r_bf7" decimal, "r_bf3" decimal, "r_bf_navy" decimal, "r_lean_weight" decimal, "r_fat_weight" decimal, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20120823015709"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to ChangeColumnIDateToDate (20120905120705)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (7.6ms)[0m  [1mALTER TABLE "trackings" ALTER COLUMN "i_date" TYPE date[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20120905120705"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to AddUserIdToTracking (20120925015220)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "trackings" ADD COLUMN "user_id" integer[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20120925015220"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
